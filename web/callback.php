@@ -34,7 +34,7 @@ if (strpos($message->{"text"},'町内会') !== false) {
 	$context = stream_context_create($options);
 	// サーバに接続してデータを貰う。条件式の部分だけURLエンコードを行う(イコールを使っているので）
 	$query = urlencode('userid = "' . $userid . '"');
-	$url = 'https://'. SUB_DOMAIN .'/k/v1/records.json?app='. APP_NO  ."&". $query;
+	$url = 'https://'. SUB_DOMAIN .'/k/v1/records.json?app='. APP_NO  ."&query=". $query;
 	error_log($url);
 	$contents = file_get_contents($url,FALSE,$context);
 	$data = json_decode($contents, true);
