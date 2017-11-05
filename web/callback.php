@@ -8,7 +8,7 @@ $jsonObj = json_decode($jsonString);
 
 $message = $jsonObj->{"events"}[0]->{"message"};
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
-$userid = $jsonObj->{"source"}[0]->{"userId"};
+$userid = $jsonObj->{"events"}[0]->{"source"}->{"userId"};
 $chounaikai = $message->{"text"};
 error_log("userId: " . $userid);
 error_log("chounaikai: " . $chounaikai);
