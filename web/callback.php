@@ -19,7 +19,7 @@ if (strpos($message->{"text"},'町内会') !== false) {
 } else {
 	// 確認ダイアログタイプ
 	$messageData = array('type' => 'text',
-									 'text' => '町内会を登録していただけると回覧板、譲ります／欲しいです、ゴミ出し等の情報が届きます。');
+									 'text' => '町内会を登録してください。');
 
 }
 
