@@ -8,9 +8,11 @@ $jsonObj = json_decode($jsonString);
 
 $message = $jsonObj->{"events"}[0]->{"message"};
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
+$userid = $jsonObj->{"source"}[0]->{"userId"};
+error_log("userId: " . $userid);
 
 // 送られてきたメッセージの中身からレスポンスのタイプを選択
-if ($message->{"text"} == '確認') {
+if (strpos($message->{"text"},'町内会') !== false) {
     // 確認ダイアログタイプ
 		$message = array('type' => 'text',
 		                 'text' => '町内会の登録ありがとうございます！');
