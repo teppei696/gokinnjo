@@ -21,7 +21,7 @@ $message = array('type' => 'text',
 error_log("===== 7 =====");
 $body = json_encode(array(
   'to'       => "U1de78326330dc1ad99d3208ead146f73",
-  'messages' => $message
+  'message' => $message
 ));
 error_log("===== 8 =====");
 error_log("body: " . $body);
