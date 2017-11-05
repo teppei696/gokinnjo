@@ -43,9 +43,32 @@ if(!empty($data['records'])){
     // build request body
     $message = array('type' => 'text',
                      'text' => $kairannbann);
+
+    $messageData2 = [
+      'type' => 'template',
+      'altText' => '確認ダイアログ',
+      'template' => [
+        'type' => 'confirm',
+        'text' => 'この回覧板は有益でしたか？',
+          'actions' => [
+            [
+              'type' => 'message',
+              'label' => 'はい',
+              'text' => 'はい20171105'
+            ],
+            [
+              'type' => 'message',
+              'label' => 'いいえ',
+              'text' => 'いいえ20171105'
+            ],
+          ]
+        ]
+      ];
+
+
     $body = json_encode(array(
       'to'       => $userid,
-      'messages' => array($message)
+      'messages' => array($message,$messageData2)
     ));
     $options = array(CURLOPT_URL            => $url,
                      CURLOPT_CUSTOMREQUEST  => 'POST',
