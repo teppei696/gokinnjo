@@ -27,7 +27,7 @@ if (strpos($message->{"text"},'町内会') !== false) {
 	$options = array(
 		'http'=>array(
 			'method'=>'GET',
-			"header"  => "X-Cybozu-API-Token: ". API_TOKEN ."\r\n" . 'Content-Type: application/json'
+			"header"  => "X-Cybozu-API-Token: ". API_TOKEN
 		)
 	);
 	$context = stream_context_create($options);
