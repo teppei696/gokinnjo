@@ -34,7 +34,7 @@ if (strpos($message->{"text"},'町内会') !== false) {
 								'app' => APP_NO,
 								'record' => array(
 															"userid" => array("userid" => $userid),    //このフィールドが主キー扱い
-															"chounaikai" => array("value" =>0)
+															"chounaikai" => array("value" =>$chounaikai)
 														)
 						)
 				)
@@ -43,7 +43,7 @@ if (strpos($message->{"text"},'町内会') !== false) {
 		$context = stream_context_create( $options );
 		$url = "https://" . SUB_DOMAIN . "/k/v1/record.json";
 		$contents = file_get_contents($url, FALSE, $context );
-		echo $contents;
+		error_log($contents);
 } else {
 	// 確認ダイアログタイプ
 	$messageData = array(
