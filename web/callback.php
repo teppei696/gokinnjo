@@ -60,7 +60,7 @@ if (strpos($message->{"text"},'町内会') !== false) {
 		$url = "https://" . SUB_DOMAIN . "/k/v1/record.json";
 		$contents = file_get_contents($url, FALSE, $context );
 		error_log($contents);
-	}elseif ($message->{"text"} === ""){
+	}else{
 		error_log("insert");
 		//HTTPヘッダ(新規レコードはPOST)
 		$options = array(
@@ -83,7 +83,7 @@ if (strpos($message->{"text"},'町内会') !== false) {
 		$contents = file_get_contents($url, FALSE, $context );
 		error_log($contents);
 	}
-} else {
+} elseif ($message->{"text"} === "") {
 	// 確認ダイアログタイプ
 	$messageData = array(
 		'type' => 'text',
