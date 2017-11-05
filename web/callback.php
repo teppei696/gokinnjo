@@ -14,10 +14,12 @@ error_log("userId: " . $userid);
 error_log("text: " . $message->{"text"});
 // 送られてきたメッセージの中身からレスポンスのタイプを選択
 if (strpos($message->{"text"},'町内会') !== false) {
-	// 確認ダイアログタイプ
+	// 感謝スタンプ
 	$messageData = array(
-		'type' => 'text',
-		'text' => '町内会の登録ありがとうございます！');
+		'type' => 'sticker',
+		'packageId' => 2,
+		'stickerId' => 171);
+
 	// kintoneに登録
 	define("SUB_DOMAIN", "oas7b.cybozu.com");
 	define("APP_NO", "18");
