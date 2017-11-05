@@ -24,7 +24,8 @@ $body = json_encode(array(
   'messages' => $message
 ));
 error_log("===== 8 =====");
-error_log("body: " + $body);
+error_log("body: " . $body);
+error_log("headers: " . $headers);
 // post json with curl
 $options = array(CURLOPT_URL            => $url,
                  CURLOPT_CUSTOMREQUEST  => 'POST',
