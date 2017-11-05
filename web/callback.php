@@ -33,7 +33,7 @@ if (strpos($message->{"text"},'町内会') !== false) {
 						array(
 								'app' => APP_NO,
 								'record' => array(
-															"userid" => array("userid" => $userid),    //このフィールドが主キー扱い
+															"userid" => array("value" => $userid),    //このフィールドが主キー扱い
 															"chounaikai" => array("value" =>$chounaikai)
 														)
 						)
