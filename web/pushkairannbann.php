@@ -10,31 +10,10 @@ $event = $receive['events'][0];
 $headers = array('Content-Type: application/json',
                  'Authorization: Bearer ' . $access_token);
 // build request body
-$message_text = "今朝の朝礼 : \n司会 :  テスト1" . "\n書記 : テスト2";
 $message = array('type' => 'text',
-                 'text' => $message_text);
-$message2 = array('type' => 'template',
-                 'altText' => '確認ダイアログ',
-                 'template' => [
-                 'type' => 'confirm',
-                 'text' => '本日の朝礼は、この組み合わせで問題ないですか？',
-                 'actions' => [
-                [
-                    'type' => 'message',
-                    'label' => '問題なし',
-                    'text' => '問題なし'
-                ],
-                [
-                    'type' => 'message',
-                    'label' => '変更します',
-                    'text' => '問題あり'
-                ],
-            ]
-        ]
-);
-
+                 'text' => 'Hello, world1');
 $body = json_encode(array('to' => "U1de78326330dc1ad99d3208ead146f73",
-                          'messages'   => array($message,$message2)));
+                          'messages'   => $message));
 // post json with curl
 $options = array(CURLOPT_URL            => $url,
                  CURLOPT_CUSTOMREQUEST  => 'POST',
