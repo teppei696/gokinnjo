@@ -14,6 +14,7 @@ $message = array('type' => 'text',
                  'text' => 'Hello, world1');
 $body = json_encode(array('to' => "U1de78326330dc1ad99d3208ead146f73",
                           'messages'   => $message));
+error_log("body: " + $body);
 // post json with curl
 $options = array(CURLOPT_URL            => $url,
                  CURLOPT_CUSTOMREQUEST  => 'POST',
@@ -23,6 +24,5 @@ $options = array(CURLOPT_URL            => $url,
 $curl = curl_init();
 curl_setopt_array($curl, $options);
 curl_exec($curl);
-error_log("curl: " + $curl);
 curl_close($curl);
 ?>
