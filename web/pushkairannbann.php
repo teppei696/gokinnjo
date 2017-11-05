@@ -11,7 +11,7 @@ $headers = array('Content-Type: application/json',
                  'Authorization: Bearer ' . $accessToken);
 // build request body
 $message = array('type' => 'text',
-                 'text' => 'Hello, world1');
+                 'text' => 'AAA町内会の2017/11/05の回覧板です。¥r¥nテスト');
 $body = json_encode(array(
   'to'       => "U1de78326330dc1ad99d3208ead146f73",
   'messages' => array($message)

@@ -30,7 +30,7 @@ if (strpos($message->{"text"},'町内会') !== false) {
 			'header'=> "X-Cybozu-API-Token:". API_TOKEN ."\r\n"
 		)
 	);
-	$context = stream_context_create( $options );
+	$context = stream_context_create($options);
 	// サーバに接続してデータを貰う。条件式の部分だけURLエンコードを行う(イコールを使っているので）
 	$query = "userid=" . $userid;
 	$url = 'https://'. SUB_DOMAIN .'/k/v1/records.json?app='. APP_NO  ."&query=". $query;
