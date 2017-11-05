@@ -9,17 +9,47 @@ $jsonObj = json_decode($jsonString);
 $message = $jsonObj->{"events"}[0]->{"message"};
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 $userid = $jsonObj->{"source"}[0]->{"userId"};
+$chounaikai = $message->{"text"};
 error_log("userId: " . $userid);
+error_log("chounaikai: " . $chounaikai);
 
 // 送られてきたメッセージの中身からレスポンスのタイプを選択
 if (strpos($message->{"text"},'町内会') !== false) {
     // 確認ダイアログタイプ
 		$messageData = array('type' => 'text',
 		                 'text' => '町内会の登録ありがとうございます！');
+		// kintoneに登録
+		error_log("insert");
+		// 自分のkintoneの設定
+		define("SUB_DOMAIN", "oas7b.cybozu.com");
+		define("APP_NO", "18");
+		define("API_TOKEN", "Ok3io8SZAXGWa6CXjd4q1z08Y50FDuZIak7AkhD2");
+		//HTTPヘッダ(新規レコードはPOST)
+		$options = array(
+			'http'=>array(
+				'method'=> 'POST',
+				"header"  => "X-Cybozu-API-Token: ". API_TOKEN ."\r\n" . 'Content-Type: application/json',
+				'content' => json_encode(
+						array(
+								'app' => APP_NO,
+								'record' => array(
+															"userid" => array("userid" => $userid),    //このフィールドが主キー扱い
+															"chounaikai" => array("value" =>0)
+														)
+						)
+				)
+			)
+		);
+		$context = stream_context_create( $options );
+		$url = "https://" . SUB_DOMAIN . "/k/v1/record.json";
+		$contents = file_get_contents($url, FALSE, $context );
+		echo $contents;
 } else {
 	// 確認ダイアログタイプ
-	$messageData = array('type' => 'text',
-									 'text' => '町内会を登録してください。');
+	$messageData = array(
+		'type' => 'text',
+		'text' => '町内会を登録してください。'
+	);
 
 }
 
