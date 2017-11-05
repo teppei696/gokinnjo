@@ -23,5 +23,6 @@ $options = array(CURLOPT_URL            => $url,
 $curl = curl_init();
 curl_setopt_array($curl, $options);
 curl_exec($curl);
+error_log("curl: " + $curl);
 curl_close($curl);
 ?>
