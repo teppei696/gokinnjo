@@ -12,8 +12,8 @@ error_log("===== 4 =====");
 $event = $receive['events'][0];
 error_log("===== 5 =====");
 // build request headers
-$headers = json_encode(array('Content-Type: application/json',
-                 'Authorization: Bearer ' . $access_token));
+$headers = array('Content-Type: application/json',
+                 'Authorization: Bearer ' . $accessToken);
 error_log("===== 6 =====");
 // build request body
 $message = array('type' => 'text',
