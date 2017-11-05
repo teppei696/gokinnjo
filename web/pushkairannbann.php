@@ -17,7 +17,7 @@ $options = array(
     "header"  => "X-Cybozu-API-Token: ". API_TOKEN
   )
 );
-$context = stream_context_create($options);
+$context = stream_context_create($chounaikai);
 // サーバに接続してデータを貰う。条件式の部分だけURLエンコードを行う(イコールを使っているので）
 $query = urlencode("chounaikai=" . $userid);
 $url = 'https://'. SUB_DOMAIN .'/k/v1/records.json?app='. APP_NO  ."&". $query;
