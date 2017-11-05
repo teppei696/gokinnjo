@@ -14,11 +14,11 @@ error_log("userId: " . $userid);
 // 送られてきたメッセージの中身からレスポンスのタイプを選択
 if (strpos($message->{"text"},'町内会') !== false) {
     // 確認ダイアログタイプ
-		$message = array('type' => 'text',
+		$messageData = array('type' => 'text',
 		                 'text' => '町内会の登録ありがとうございます！');
 } else {
 	// 確認ダイアログタイプ
-	$message = array('type' => 'text',
+	$messageData = array('type' => 'text',
 									 'text' => '町内会を登録していただけると回覧板、譲ります／欲しいです、ゴミ出し等の情報が届きます。');
 
 }
