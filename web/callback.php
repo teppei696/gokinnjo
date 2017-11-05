@@ -11,8 +11,7 @@ $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 $userid = $jsonObj->{"events"}[0]->{"source"}->{"userId"};
 $chounaikai = $message->{"text"};
 error_log("userId: " . $userid);
-error_log("chounaikai: " . $chounaikai);
-
+error_log("text: " . $message->{"text"});
 // 送られてきたメッセージの中身からレスポンスのタイプを選択
 if (strpos($message->{"text"},'町内会') !== false) {
 	// 確認ダイアログタイプ
@@ -83,7 +82,7 @@ if (strpos($message->{"text"},'町内会') !== false) {
 		$contents = file_get_contents($url, FALSE, $context );
 		error_log($contents);
 	}
-} elseif ($message->{"text"} === "") {
+} elseif ($message->{"text"} == "") {
 	// 確認ダイアログタイプ
 	$messageData = array(
 		'type' => 'text',
