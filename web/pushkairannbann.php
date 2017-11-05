@@ -19,8 +19,10 @@ error_log("===== 6 =====");
 $message = array('type' => 'text',
                  'text' => 'Hello, world1');
 error_log("===== 7 =====");
-$body = json_encode(array('to' => "U1de78326330dc1ad99d3208ead146f73",
-                          'messages'   => $message));
+$body = json_encode(array(
+  'to'       => "U1de78326330dc1ad99d3208ead146f73",
+  'messages' => $message
+));
 error_log("===== 8 =====");
 error_log("body: " + $body);
 // post json with curl
@@ -34,7 +36,8 @@ $curl = curl_init();
 error_log("===== 10 =====");
 curl_setopt_array($curl, $options);
 error_log("===== 11 =====");
-curl_exec($curl);
+$result = curl_exec($curl);
+error_log($result);
 error_log("===== 12 =====");
 curl_close($curl);
 error_log("===== 13 =====");
