@@ -1,4 +1,10 @@
 <?php
+// リクエストパラメーター取得
+$kairannbann = $_REQUEST['kairannbann'];
+$chounaikai = $_REQUEST['chounaikai'];
+error_log("kairannbann: " . $kairannbann);
+error_log("chounaikai: " . $chounaikai);
+
 $accessToken = 'eA/51fwfAvW5dzxv8/TRF1To1ThZEBHQnyEXvMHapZTgSOwG9F2JCFz9mzeMb5H3QRN4YC/VdZX9bx1t8IMPpX/hR5+gl4pKR55CmfWX8+BpT+1WvwN3ny3Dz8oW0cYanOw3F/PJzT1iwaenUSGmcAdB04t89/1O/w1cDnyilFU=';
 $url = 'https://api.line.me/v2/bot/message/push';
 // receive json data from line webhook
