@@ -37,7 +37,7 @@ if (strpos($message->{"text"},'町内会') !== false) {
 	$contents = file_get_contents($url, FALSE, $context );
 	//JSON形式からArrayに変換
 	$data = json_decode($contents, true);
-
+	error_log($contents);
 	//レコードがあったらUPDATE
 	if(!empty($data['records'])){
 		error_log("update");
